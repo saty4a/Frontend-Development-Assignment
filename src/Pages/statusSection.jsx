@@ -23,7 +23,7 @@ const StatusSection = () => {
     <section className="reveal flex flex-col my-[5rem] lg:flex-row">
       {statusDetails &&
         statusDetails.map((data, index) => (
-          <div className="flex flex-col items-center my-[3rem] gap-4">
+          <div className="flex flex-col items-center my-[3rem] gap-4" key={index}>
             <p className="text-4xl text-[#582066] font-semibold">
               {data.title}
             </p>

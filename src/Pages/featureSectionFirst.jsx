@@ -35,7 +35,7 @@ const FeatureSectionFirst = () => {
       </div>
       <div className="flex flex-col lg:flex-row">
         {FeatureData &&
-          FeatureData.map((data, index) => <FeatureCard FeatureData={data} />)}
+          FeatureData.map((data, index) => <FeatureCard FeatureData={data} key={index} />)}
       </div>
     </section>
   );
