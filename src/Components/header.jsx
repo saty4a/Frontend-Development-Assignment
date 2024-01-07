@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState, useRef } from "react";
 import NavBar from "./navBar";
 import NavElements from "./navElements";
@@ -7,12 +8,14 @@ import { FaArrowRightToBracket } from "react-icons/fa6";
 import logo from "../assets/Logo.png";
 import Image from "next/image";
 
+const isBrowser = () => typeof window !== 'undefined'; 
+
 const Header = () => {
   const styles = "sticky top-0 z-50 blur-background";
   const [showNavBar, setShowNavBar] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(isBrowser() ? window.innerWidth : "");
   const [styleNavBar, setStyleNavBar] = useState(
-    window.innerWidth <= 1024 ? "" : styles
+    isBrowser() ? window.innerWidth <= 1024 ? "" : styles : ""
   );
   const [navAnimation, setNavAnimation] = useState("slide-in-done");
 

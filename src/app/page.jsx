@@ -11,8 +11,12 @@ import CallToAction from '@/Pages/callToActionSection'
 import Footer from '@/Pages/footer'
 import { reveal } from '@/Components/scrollAnimation'
 
+const isBrowser = () => typeof window !== 'undefined'; 
 export default function Home() {
-  window.addEventListener("scroll",reveal);
+  if (isBrowser()) { 
+    window.addEventListener("scroll",reveal);
+}
+  
   return (
       <div className="">
         <AnnouncementBar />
