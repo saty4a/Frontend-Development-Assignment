@@ -1,6 +1,6 @@
 "use client"
 import HeroSection from '@/Pages/heroSection'
-import Header from '../Components/Header'
+import Header from '../Components/header'
 import AnnouncementBar from '../Components/announcementBar'
 import LogoSection from '@/Pages/logoSection'
 import FeatureSectionFirst from '@/Pages/featureSectionFirst'
