@@ -2,26 +2,185 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*{
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  text-align: center;
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+.links-text-color {
+  color: #363C46;
+}
+
+.background-navBar {
+  background-color: white;
+}
+
+.blur-background {
+  backdrop-filter: blur(10px);
+}
+
+.navbar-padding {
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+}
+
+.text-underline-animation {
+  position: relative;
+  text-decoration: none;
+}
+
+.text-underline-animation::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.text-underline-animation:hover::before {
+  transform: scaleX(1);
+}
+
+.phone {
+  position: relative;
+}
+
+.stick-position {
+  position: absolute;
+  top: 23%;
+  left: 13%;
+}
+
+.phone-glitter-position {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+}
+
+.spending {
+  position: relative;
+}
+
+.spending-glitter-position {
+  position: absolute;
+  top: 17%;
+  left: 9%;
+}
+
+.footer-text {
+  color: #363C46;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slide-in-done {
+  animation: slide-in 600ms ease-in;
+}
+
+.slide-out-done {
+  animation: slide-out 600ms ease-out;
+}
+
+@keyframes slide-in {
+  0%{
+    opacity: 0;
+    transform: translatex(26rem);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  100%{
+    opacity: 0;
+    transform: translateX(26rem);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(150px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .stick-position {
+    top: 24%;
+    left: 17%;
+  }
+  
+  .phone-glitter-position {
+    top: 16%;
+    left: 10%;
+  }
+
+  .spending-glitter-position {
+    top: 17%;
+    left: 8%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .stick-position {
+    top: 22%;
+    left: 25%;
+  }
+  
+  .phone-glitter-position {
+    top: 15%;
+    left: 20%;
+  }
+
+  .spending-glitter-position {
+    top: 16%;
+    left: 22%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .stick-position {
+    top: 23%;
+    left: 18%;
+  }
+  
+  .phone-glitter-position {
+    top: 16%;
+    left: 12%;
+  }
+
+  .spending-glitter-position {
+    top: 14%;
+    left: 16%;
+  }
 }
