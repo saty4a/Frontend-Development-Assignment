@@ -71,6 +71,7 @@ const Header = () => {
   return (
     <nav className={`navBar ${styleNavBar} border-2`}>
       <div className="flex  items-center mx-4 my-4 justify-between lg:justify-evenly">
+        {navBarLogo && navBarLogo}
         <Image src={navBarLogo ? navBarLogo : logo} height={0} width={0} objectFit="contain" layout="responsive" className="image-style" alt="logo" />
         {windowWidth >= 1024 ? (
           <NavElements refs={ref} h={"full"} directions={"flex-row"} />
