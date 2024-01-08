@@ -10,6 +10,7 @@ import TestimonialSection from '@/Pages/testimonialSection'
 import CallToAction from '@/Pages/callToActionSection'
 import Footer from '@/Pages/footer'
 import { reveal } from '@/Components/scrollAnimation'
+import Subscribe from '@/Pages/subscribe'
 
 const isBrowser = () => typeof window !== 'undefined'; 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
         <StatusSection />
         <TestimonialSection />
         <CallToAction />
+        <Subscribe />
         <Footer />
       </div>
   )

@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {eslint: {
+const nextConfig = {
+  eslint: {
     ignoreDuringBuilds: true,
-  },output: 'export',}
+  },
+  images: {
+    domains: ['127.0.0.1'],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

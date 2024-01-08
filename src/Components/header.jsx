@@ -7,6 +7,7 @@ import { FaXmark } from "react-icons/fa6";
 import { FaArrowRightToBracket } from "react-icons/fa6";
 import logo from "../assets/Logo.png";
 import Image from "next/image";
+import { getImage } from "@/apiCalls/fetchData";
 
 const isBrowser = () => typeof window !== 'undefined'; 
 
@@ -18,6 +19,7 @@ const Header = () => {
     isBrowser() ? window.innerWidth <= 1024 ? "" : styles : ""
   );
   const [navAnimation, setNavAnimation] = useState("slide-in-done");
+  const [navBarLogo, setNavBarLogo] = useState(logo);
 
   const ref = useRef();
   const handleNavBar = () => {
@@ -58,10 +60,18 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    getImage("navbar").then((res) => {
+      if (res.data.success) {
+        setNavBarLogo(res.data.imageData.imageUrl);
+      }
+    })
+  },[])
+
   return (
     <nav className={`navBar ${styleNavBar} border-2`}>
       <div className="flex  items-center mx-4 my-4 justify-between lg:justify-evenly">
-        <Image src={logo} className="" alt="logo" />
+        <Image src={navBarLogo ? navBarLogo : logo} height={0} width={0} objectFit="contain" layout="responsive" className="image-style" alt="logo" />
         {windowWidth >= 1024 ? (
           <NavElements refs={ref} h={"full"} directions={"flex-row"} />
         ) : !showNavBar ? (

@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/Logo.png";
 import Image from "next/image";
 import FooterCard from "@/Components/footerCard";
 import { FaGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaDiscord } from "react-icons/fa6";
+import { getImage } from "@/apiCalls/fetchData";
 
 const Footer = () => {
+  const [footerLogo, setFooterLogo] = useState(logo);
   const footerData = [
     {
       title: "Company",
@@ -44,9 +46,18 @@ const Footer = () => {
       content4: "Refund",
     },
   ];
+
+  useEffect(() => {
+    getImage("footer").then((res) => {
+      if (res.data.success) {
+        setFooterLogo(res.data.imageData.imageUrl);
+      }
+    })
+  },[])
+
   return (
     <section className="reveal border-t-2 md:pt-10">
-      <Image src={logo} className="mt-10 md:m-auto" alt="logo" />
+      <Image src={footerLogo ? footerLogo : logo} height={0} width={0} objectFit="contain" layout="responsive" className="image-style mt-10 md:m-auto" alt="logo" />
       <p className="ms-4 mt-5 text-base text-[#5A6475] font-medium text-start md:text-center md:w-2/3 md:m-auto lg:w-1/2 xl:w-2/5">
         Mode UI is a comprehensive design system that empowers designers and
         developers to create cohesive and visually stunning user interfaces

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -12,11 +12,11 @@ body {
 }
 
 body::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
 
 .links-text-color {
-  color: #363C46;
+  color: #363c46;
 }
 
 .background-navBar {
@@ -25,6 +25,10 @@ body::-webkit-scrollbar {
 
 .blur-background {
   backdrop-filter: blur(10px);
+}
+
+.image-style {
+  width: 30% !important;
 }
 
 .navbar-padding {
@@ -81,20 +85,20 @@ body::-webkit-scrollbar {
 }
 
 .footer-text {
-  color: #363C46;
+  color: #363c46;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
 }
 
-.reveal{
+.reveal {
   position: relative;
   transform: translateY(150px);
   opacity: 0;
   transition: 1s all ease;
 }
 
-.reveal.active{
+.reveal.active {
   transform: translateY(0);
   opacity: 1;
 }
@@ -108,7 +112,7 @@ body::-webkit-scrollbar {
 }
 
 @keyframes slide-in {
-  0%{
+  0% {
     opacity: 0;
     transform: translatex(26rem);
   }
@@ -118,7 +122,7 @@ body::-webkit-scrollbar {
 }
 
 @keyframes slide-out {
-  100%{
+  100% {
     opacity: 0;
     transform: translateX(26rem);
   }
@@ -139,7 +143,7 @@ body::-webkit-scrollbar {
     top: 24%;
     left: 17%;
   }
-  
+
   .phone-glitter-position {
     top: 16%;
     left: 10%;
@@ -152,11 +156,15 @@ body::-webkit-scrollbar {
 }
 
 @media screen and (min-width: 768px) {
+  .image-style {
+    width: 17% !important;
+  }
+
   .stick-position {
     top: 22%;
     left: 25%;
   }
-  
+
   .phone-glitter-position {
     top: 15%;
     left: 20%;
@@ -169,11 +177,15 @@ body::-webkit-scrollbar {
 }
 
 @media screen and (min-width: 1024px) {
+  .image-style {
+    width: 8% !important;
+  }
+
   .stick-position {
     top: 23%;
     left: 18%;
   }
-  
+
   .phone-glitter-position {
     top: 16%;
     left: 12%;

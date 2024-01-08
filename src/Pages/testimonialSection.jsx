@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import wise from "../assets/Logo-4.png";
 import person from "../assets/person.png";
 import star from "../assets/star.png";
 import Image from "next/image";
+import { getImage } from "@/apiCalls/fetchData";
 
 const TestimonialSection = () => {
+  const [changeLogo, setChangeLogo] = useState(wise);
+
+  useEffect(() => {
+    getImage("testimonial").then((res) => {
+      if (res.data.success) {
+        setChangeLogo(res.data.imageData.imageUrl);
+      }
+    })
+  },[])
+
   return (
     <section className="reveal flex flex-col items-center my-[5rem]">
       <Image
-        src={wise}
-        className="m-auto w-1/3 md:w-1/6 xl:w-[10%]"
+        src={changeLogo ? changeLogo : logo} height={0} width={0} objectFit="contain" layout="responsive" className="image-style m-auto w-1/3 md:w-1/6 xl:w-[10%]"
         alt="featureIcon"
       />
       <p className="text-[#24282F] text-xl font-medium px-3 my-[3rem] w-full md:text-3xl md:w-3/4 xl:1/6">

@@ -1,7 +1,18 @@
-import React from "react";
+import { getText } from "@/apiCalls/fetchData";
+import React, { useEffect, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const HeroSection = () => {
+  const [changeText, setChangedText] = useState("");
+
+  useEffect(() => {
+    getText("header").then((res) => {
+      if (res.data.success) {
+        setChangedText(res.data.textData.text);
+      }
+    });
+  }, []);
+
   return (
     <section className="flex flex-col items-center gap-5 mt-[3rem] md:mt-[5rem]">
       <h4 className="text-[#582066] text-base font-medium">
@@ -15,7 +26,7 @@ const HeroSection = () => {
         et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
       </h3>
       <button className="flex gap-2 items-center justify-center rounded-xl border-2 bg-[#582066] text-white px-3 py-3 m-auto w-[20rem] md:w-[13rem] xl:w-[12rem]">
-        <span className="text-base">Unlock your Card</span>
+        <span className="text-base">{changeText ? changeText : "Unlock your Card"}</span>
         <FaArrowRightLong className="cursor-pointer" size={20} />
       </button>
       <p className="text-[#5A6475] text-sm font-medium">
